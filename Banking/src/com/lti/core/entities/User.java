@@ -2,8 +2,12 @@ package com.lti.core.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+
+@Entity(name="users")
 public class User {
 
+	String userId;
 	String firstName;
 	String middleName;
 	String lastName;
