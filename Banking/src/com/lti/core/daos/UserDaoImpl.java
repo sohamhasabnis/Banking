@@ -6,10 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.lti.core.entities.User;
+import com.lti.core.exceptions.PassException;
 import com.lti.core.exceptions.UserException;
 
 @Repository("UserDao")
@@ -18,6 +20,9 @@ public class UserDaoImpl implements UserDao {
 
 @PersistenceContext
 private EntityManager manager;
+
+	@Autowired
+	PassDaoImpl pass;
 	public UserDaoImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,15 +42,15 @@ private EntityManager manager;
 	}
 
 	@Override
-	public String getPassword(String userId) throws UserException {
-		// TODO Auto-generated method stub
-		return null;
+	public String getPassword(String userId) throws UserException,PassException {
+		return pass.getAccPassword(userId);
+		
 	}
 
 	@Override
 	public boolean updateUser(User user) throws UserException {
-		// TODO Auto-generated method stub
-		return false;
+		manager.merge(user);
+		return true;
 	}
 
 }

@@ -3,10 +3,14 @@ package com.lti.core.entities;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name="users")
+@Table(name="USER_INFO")
 public class User {
 
+	@Id
 	String userId;
 	String firstName;
 	String middleName;
