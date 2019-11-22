@@ -1,7 +1,5 @@
 package com.lti.core.daos;
 
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,7 +12,7 @@ import com.lti.core.entities.User;
 import com.lti.core.exceptions.PassException;
 import com.lti.core.exceptions.UserException;
 
-@Repository("UserDao")
+@Repository("userDao")
 @Scope("singleton")
 public class UserDaoImpl implements UserDao {
 

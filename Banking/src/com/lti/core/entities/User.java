@@ -2,6 +2,7 @@ package com.lti.core.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,18 +12,41 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
+	@Column(name="USER_ID")
 	String userId;
+
+	@Column(name="FIRST_NAME")
 	String firstName;
+
+	@Column(name="MIDDLE_NAME")
 	String middleName;
+
+	@Column(name="LAST_NAME")
 	String lastName;
+
 	String fatherName;
+
+	@Column(name="EMAIL_ID")
 	String email;
+
+	@Column(name="MOBILE_NO")
 	long mobileNumber;
+
+	@Column(name="DOB")
 	Date dob;
+	
+	@Column(name="R_ADDRESS")
 	String rAddr;
+
+	@Column(name="P_ADDRESS")
 	String pAddr;
+
+	@Column(name="OCC")
 	String occupation;
+
+	@Column(name="INCOME")
 	long income;
+	
 	boolean atmCard;
 	boolean netBank;
 	
