@@ -1,7 +1,6 @@
 package com.lti.core.exceptions;
 
 public class UserException extends Exception {
-
 	public UserException() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,4 +25,5 @@ public class UserException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 }

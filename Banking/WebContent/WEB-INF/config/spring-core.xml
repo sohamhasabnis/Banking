@@ -8,13 +8,13 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         ">
-	<context:component-scan base-package="com.lti.core.daos, com.lti.core.services"/>
+	<context:component-scan base-package="com.lti.core"/>
       
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
    <property name="url" value="jdbc:oracle:thin:@192.168.100.63:1521:XE"/>
-   <property name="username" value="hr"/>
-   <property name="password" value="hr"/>
+   <property name="username" value="bank"/>
+   <property name="password" value="bank"/>
   </bean>
   
   <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

@@ -1,11 +1,15 @@
 package com.lti.core.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
 
 @Entity(name="users")
 @Table(name="USER_INFO")
@@ -24,7 +28,11 @@ public class User {
 	@Column(name="LAST_NAME")
 	String lastName;
 
+	@Transient
 	String fatherName;
+
+	@Column(name="AADHAR_CARD_NO")
+	long aadharNo;
 
 	@Column(name="EMAIL_ID")
 	String email;
@@ -33,6 +41,7 @@ public class User {
 	long mobileNumber;
 
 	@Column(name="DOB")
+	@Temporal(TemporalType.DATE)
 	Date dob;
 	
 	@Column(name="R_ADDRESS")
@@ -47,8 +56,12 @@ public class User {
 	@Column(name="INCOME")
 	long income;
 	
+	@Transient
 	boolean atmCard;
+	
+	@Transient
 	boolean netBank;
+	
 	
 	public String getFirstName() {
 		return firstName;
@@ -152,5 +165,21 @@ public class User {
 	
 	public void setNetBank(boolean netBank) {
 		this.netBank = netBank;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
+	public long getAadharNo() {
+		return aadharNo;
+	}
+
+	public void setAadharNo(long aadharNo) {
+		this.aadharNo = aadharNo;
 	}
 }

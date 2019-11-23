@@ -1,11 +1,21 @@
 package com.lti.core.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name="pass")
+@Table(name="LOGIN")
 public class Passwords {
+	@Id
+	@Column(name="USER_ID")
 	private String userId;
+	
+	@Column(name="LOGIN_PASS")
 	private String accPassword;
+	
+	@Column(name="TXN_PASS")
 	private String txnPassword;
 	
 	public Passwords() {

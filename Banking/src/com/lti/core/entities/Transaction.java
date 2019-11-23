@@ -2,18 +2,37 @@ package com.lti.core.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+
+@Entity(name="trans")
+@Table(name="transaction")
 public class Transaction {
 	
 
+@Column(name="ACCOUNT_NO")
 int account_no;
+
+@Id
+@Column(name="TX_ID")
 int transaction_id;
+
+@Column(name="AMOUNT")
 double amount;
+
+@Column(name="DESCRIPTION")
 String description;
-String type;
+@Column(name="TXDATE")
 Date Date_of_Transaction;
 public int getAccount_no() {
 	return account_no;
 }
+
 public void setAccount_no(int account_no) {
 	this.account_no = account_no;
 }

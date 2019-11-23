@@ -6,11 +6,12 @@ import javax.persistence.Query;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.core.entities.Passwords;
 import com.lti.core.exceptions.PassException;
 
-@Repository("PassDao")
+@Repository("passDao")
 @Scope("singleton")
 public class PassDaoImpl implements PassDao {
 @PersistenceContext
@@ -33,5 +34,12 @@ private EntityManager manager;
 		qry.setParameter("arg1", userId);
 		Passwords pass = (Passwords)qry.getSingleResult();
 		return pass.getTxnPassword();
+	}
+
+	@Override
+	@Transactional
+	public boolean setPassword(Passwords pass) throws PassException {
+		manager.persist(pass);
+		return true;
 	}
 }

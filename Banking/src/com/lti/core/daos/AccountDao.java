@@ -8,7 +8,9 @@ import com.lti.core.exceptions.UserException;
 
 public interface AccountDao 
 {
-	public List<Account> getAccDetails() throws AccountException;
-	public String getAccountType(String type) throws AccountException;
-	public int getAccountBalance(int Balance) throws AccountException;
+	public boolean insertAccount(Account account) throws AccountException;
+	public Account getAccDetails(int acno) throws AccountException;
+	public String getAccountType(int acno) throws AccountException;
+	public int getAccountBalance(int acno) throws AccountException;
+	
 }
