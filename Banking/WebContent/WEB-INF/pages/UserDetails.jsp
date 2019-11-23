@@ -7,9 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${companyName}</h1>
-	<h2>Company Address</h2>
-	<a href="empList.hr">List of employees</a>
+<h1>LNT</h1>
+	<table>
+	<tr>
+		<th>Employee ID</th>
+		<td>${usr.firstName}</td>
+	</tr>
+	</table>
 	
 </body>
 </html>

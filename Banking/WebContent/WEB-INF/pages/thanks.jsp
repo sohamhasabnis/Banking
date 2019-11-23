@@ -7,21 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>LNT</h1>
-	<table>
-	<tr>
-		<th>Employee ID</th>
-		<td>${emp.employeeId}</td>
-	</tr>
-	<tr>
-		<th>First Name</th>
-		<td>${emp.firstName}</td>
-	</tr>
-	<tr>
-		<th>Last Name</th>
-		<td>${emp.lastName}</td>
-	</tr>
-	</table>
-	<a href="empList.hr">Go Back</a> <a href="home.hr">GO Home</a>
+<h1>Indian Army  </h1>
 </body>
 </html>
