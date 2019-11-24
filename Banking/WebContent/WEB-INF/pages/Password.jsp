@@ -27,14 +27,14 @@
 <br>
 <form method="post">
 	<pre>
-	Login Password                -         <input type="password" name="LOGIN_PASS"/>
+	Login Password                -         <input type="password" name="accPassword"/>
 
 	Confirm Login Password        -         <input type="password" name="login2"/>
 	
 
 
 
-	Transaction Password          -         <input type="password" name="TXN_PASS"/>
+	Transaction Password          -         <input type="password" name="txnPassword"/>
     
         Confirm Transaction Password  -         <input type="password" name="trans2"/>
 

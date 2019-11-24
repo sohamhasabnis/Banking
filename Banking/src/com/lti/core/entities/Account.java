@@ -12,10 +12,7 @@ import javax.persistence.TableGenerator;
 
 @Entity(name="acc")
 @Table(name="ACCOUNT")
-
-
 @SequenceGenerator(name="app_seq", sequenceName="seq", initialValue= 1000,allocationSize=1)
-
 public class Account
 {
 	@Id
