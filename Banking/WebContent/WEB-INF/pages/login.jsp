@@ -34,7 +34,7 @@ Enter Password:          <input type="password" name="pass">
 <center><input type="submit" value="Proceed">   <input type="button" value="Back"><br><br></center>
 </pre>
 </form>
-<h6> First Time User? <a href="Acc.HTML">Register</a></h6>
+<h6> First Time User? <a href="home.usr">Register</a></h6>
 <h6> <a href="ForgotUserid.HTML">Forgot USER ID?</a></h6>
 <h6> <a href="ForgotPassword.HTML">Forgot Password?</a></h6>
 </div>

@@ -2,6 +2,7 @@ package com.lti.core.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.core.daos.PassDao;
 import com.lti.core.daos.StatusDao;
@@ -36,7 +37,9 @@ public class LoginServiceImpl implements LoginService {
 		return true;
 	}
 
+	
 	@Override
+	@Transactional
 	public void addStatus(Status status) {
 		dao.setStatusLog(status);
 	}
