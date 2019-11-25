@@ -4,5 +4,5 @@ import com.lti.core.entities.Benificary;
 
 public interface BenificaryDao {
 	public boolean insertBenificary(Benificary benificary);
-	public int getBenficary(int account_no);
+	public int getBenficary(int account_no,String name);
 }

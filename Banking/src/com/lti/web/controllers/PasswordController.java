@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lti.core.entities.Benificary;
 import com.lti.core.entities.Passwords;
 import com.lti.core.entities.Sha1;
 import com.lti.core.entities.Status;
 import com.lti.core.exceptions.AccountException;
 import com.lti.core.exceptions.PassException;
+import com.lti.core.services.BeneficaryService;
 import com.lti.core.services.LoginService;
 import com.lti.core.services.PasswordService;
 import com.lti.core.services.UserService;
@@ -32,6 +34,9 @@ public class PasswordController {
 	
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	BeneficaryService beneficaryService;
 	
 	@Autowired
 	JavaMailSender sender;
@@ -53,7 +58,16 @@ public class PasswordController {
 		pass.setTxnPassword(Sha1.encryptThisString(pass.getTxnPassword()));
 		service.setPassword(pass);
 		SetAccountStatus(session);
+		addBeneficary();
 		return "Password";
+	}
+	
+	private void addBeneficary() {
+		Benificary benificary = new Benificary();
+		benificary.setB_name("soham");
+		benificary.setFromAcNo(1001);
+		benificary.setToAcNo(1002);
+		beneficaryService.addBeneficary(benificary);
 	}
 	
 	private void SetAccountStatus(HttpSession session) {
