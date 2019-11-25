@@ -1,5 +1,7 @@
 package com.lti.web.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +35,15 @@ public class LoginController {
 	
 	@PostMapping("login.usr")
 	public String getLogin(@RequestParam("user_id") String userId,
-			@RequestParam("pass") String password) throws PassException {
+			@RequestParam("pass") String password, HttpSession session) throws PassException {
 		
 		password = Sha1.encryptThisString(password);
 		if(loginService.validateUser(userId)) {
 			if(loginService.validateStatus(userId)) {
 				if(loginService.validatePassword(userId, password))
 				{
-					return "thanks";
+					session.setMaxInactiveInterval(100);
+					return "dashboard";
 				}
 				else
 					return "login";

@@ -19,5 +19,14 @@ public class PasswordServiceImpl implements PasswordService{
 		// TODO Auto-generated method stub
 		return dao.setPassword(pass);
 	}
+	@Override
+	public int updateAccPassword(String password, String userId) throws PassException {
+	
+		return dao.updateLoginPassword(password, userId);
+	}
+	@Override
+	public int updateTxnPassword(String password, String userId) throws PassException {
+		return dao.updateTransactionPassword(password, userId);
+	}
 
 }

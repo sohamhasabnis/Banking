@@ -1,6 +1,5 @@
 package com.lti.web.controllers;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -11,13 +10,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,6 +40,7 @@ public class UserController {
 	    dateFormat.setLenient(true);
 	    webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
+	
 	public UserController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -87,8 +85,8 @@ public class UserController {
 	}
 	
 	@RequestMapping("Thanks.usr")
-	public String redirect()
-	{
+	public String redirect(HttpSession session) {
+		
 		return "thanks";
 	}
 	

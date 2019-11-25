@@ -42,4 +42,22 @@ private EntityManager manager;
 		manager.persist(pass);
 		return true;
 	}
+
+	@Override
+	public int updateLoginPassword(String accPassword,String userId) throws PassException {
+		Query qry = manager.createQuery("update pass p set p.accPassword=:accpass where p.userId=:arguser");
+		qry.setParameter("accpass", accPassword);
+		qry.setParameter("arguser", userId);
+		int rowsUpdate=qry.executeUpdate();
+		return rowsUpdate;
+	}
+
+	@Override
+	public int updateTransactionPassword(String transPassword,String userId) throws PassException {
+		Query qry = manager.createQuery("update pass p set p.txnPassword=:txnpass where p.userId=:arguser");
+		qry.setParameter("accpass", transPassword);
+		qry.setParameter("arguser", userId);
+		int rowsUpdate=qry.executeUpdate();
+		return rowsUpdate;
+	}
 }

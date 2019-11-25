@@ -57,6 +57,19 @@ public class AccountDaoImpl implements AccountDao
 		return true;
 	}
 
+	@Override
+	@Transactional
+	public boolean setAccountBalance(int acno, int amount,boolean flg) throws AccountException {
+		// TODO Auto-generated method stub
+		Account acc= getAccDetails(acno);
+		if(flg)
+			acc.setBalance(acc.getBalance()+amount);
+		else
+			acc.setBalance(acc.getBalance()-amount);
+		manager.merge(acc);
+		return true;
+	}
+
 
 
 	
