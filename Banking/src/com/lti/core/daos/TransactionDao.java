@@ -1,13 +1,12 @@
 package com.lti.core.daos;
 
 import java.util.Date;
+import java.util.List;
 
 import com.lti.core.entities.Transaction;
 import com.lti.core.exceptions.UserException;
 
 public interface TransactionDao {
-	public String showTransactionDetails() throws UserException;
-	public boolean debit() throws UserException;
-	public boolean credit() throws UserException;
-	public Transaction getTransactions(Date fromDate,Date toDate);
+	public boolean addTransaction(Transaction transaction);
+	public List<Transaction> getTransactions(Date fromDate,Date toDate);
 }

@@ -80,7 +80,7 @@ public class PasswordController {
 				else
 					return "OTP NOT VALID";
 			}
-		return "FAILED";
+		return "mail.usr";
 	}
 	
 	@PostMapping("mailotp.usr")
