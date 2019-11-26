@@ -1,5 +1,6 @@
 package com.lti.web.controllers;
 
+import javax.jws.WebParam.Mode;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lti.core.entities.Authorize;
 import com.lti.core.entities.Benificary;
 import com.lti.core.entities.Passwords;
 import com.lti.core.entities.Sha1;
@@ -58,8 +60,8 @@ public class PasswordController {
 		pass.setTxnPassword(Sha1.encryptThisString(pass.getTxnPassword()));
 		service.setPassword(pass);
 		SetAccountStatus(session);
-		addBeneficary();
-		return "Password";
+		//addBeneficary();
+		return "thanks";
 	}
 	
 	private void addBeneficary() {
@@ -79,51 +81,61 @@ public class PasswordController {
 	}
 	
 	@GetMapping("validate.usr")
-	public String validateOTP(@RequestParam("") String otp2, 
-			@RequestParam("") String password,
+	public String validateOTP()
+	{
+		return "OTP";
+	}
+	
+	@PostMapping("validate.usr")
+	public String validateOTP(@RequestParam("otp") String otp2, 
+			@RequestParam("password") String password,
 			HttpSession session ) throws PassException {
 			Object obj =session.getAttribute("otp");
-			String userId =(String)session.getAttribute("user");
+			//String userId =(String)session.getAttribute("user");
 			String otp="";
 			if(obj != null)
 				otp=obj.toString();
 			if(otp.contentEquals(otp2)) {
-				int result = service.updateAccPassword(Sha1.encryptThisString(password), userId);
+				int result = service.updateAccPassword(Sha1.encryptThisString(password), (String)session.getAttribute("userId"));
 				if(result>0)
 					return "redirect:login.usr";
 				else
 					return "OTP NOT VALID";
 			}
-		return "mail.usr";
+		return "thanks";
 	}
 	
-	@PostMapping("mailotp.usr")
+	@RequestMapping("email.usr")
+	public String forgotPasswordPage(HttpSession session, Model model) {
+		return "forgotPassword";
+	}
+	
+	@PostMapping("email.usr")
 	public String sentOtp(Model model, @RequestParam("emailToRecipient")final String emailToRecipient,@RequestParam("userId") final String userId,HttpSession session)
 	{
+	//	String view = Authorize.authorize(session,model,"emails");
 		int randomPin=(int)(Math.random()*9000)+1000;
 		//variable must be final as it is used inside nested inner class
 		final String otp1=String.valueOf(randomPin);
 		sender.send(new MimeMessagePreparator(){
-		public void prepare(MimeMessage mimeMessage) {
-	
-			try {
-				MimeMessageHelper mimeMsgHelperObj=new MimeMessageHelper(mimeMessage, true,"UTF-8");
-				mimeMsgHelperObj.setTo(emailToRecipient);
-				mimeMsgHelperObj.setFrom(emailSender);
-				mimeMsgHelperObj.setText("Your otp for Airline Online site. Please put this as it is ."+otp1);
-				mimeMsgHelperObj.setSubject("Your otp is:");
-			} catch (MessagingException e) {
+			public void prepare(MimeMessage mimeMessage) {
+				try {
+					MimeMessageHelper mimeMsgHelperObj=new MimeMessageHelper(mimeMessage, true,"UTF-8");
+					mimeMsgHelperObj.setTo(emailToRecipient);
+					mimeMsgHelperObj.setFrom(emailSender);
+					mimeMsgHelperObj.setText("Your otp for Change of Password is. Please put this as it is ."+otp1);
+					mimeMsgHelperObj.setSubject("Your otp is:");
+				} catch (MessagingException e) {
 				
-				e.printStackTrace();
+					e.printStackTrace();
+				}
 			}
-		}
-	});
-	session.setAttribute("otp",otp1);
-	session.setAttribute("email",emailToRecipient);
-	session.setAttribute("userId", userId);
-	
-	System.out.println("\nMssage send successfully!\n");
-	model.addAttribute("msg","Mail sent");
-	return"forgetPassword";
+		});
+		session.setAttribute("otp",otp1);
+		session.setAttribute("email",emailToRecipient);
+		session.setAttribute("userId", userId);
+		System.out.println("\nMssage send successfully!\n");
+		model.addAttribute("msg","Mail sent");
+		return"redirect:validate.usr";
 	}
 }

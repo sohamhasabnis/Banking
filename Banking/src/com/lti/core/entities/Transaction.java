@@ -1,52 +1,60 @@
 package com.lti.core.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity(name="trans")
 @Table(name="transaction")
+@SequenceGenerator(name="app_seq1", sequenceName="sequence_name", initialValue= 1001,allocationSize=1)
 public class Transaction {
 	@Column(name="ACCOUNT_NO")
-	int account_no;
+	long account_no;
 
 	@Id
+	@Column(name="B_ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="app_seq1")
+	int b_id;
+	
 	@Column(name="TX_ID")
-	int transaction_id;
+	long transaction_id;
 
 	@Column(name="AMOUNT")
-	double amount;
+	int amount;
 	
 	@Column(name="DESCRIPTION")
 	String description;
 	
 	@Column(name="TXDATE")
-	Date Date_of_Transaction;
+	Date date_of_Transaction;
 	
-	public int getAccount_no() {
+	public long getAccount_no() {
 		return account_no;
 	}	
 
-	public void setAccount_no(int account_no) {
+	public void setAccount_no(long account_no) {
 		this.account_no = account_no;
 	}
 	
-	public int getTransaction_id() {
+	public long getTransaction_id() {
 		return transaction_id;
 	}
 	
-	public void setTransaction_id(int transaction_id) {
+	public void setTransaction_id(long transaction_id) {
 		this.transaction_id = transaction_id;
 	}
 	
-	public double getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 	
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	
@@ -59,10 +67,10 @@ public class Transaction {
 	}
 
 	public Date getDate_of_Transaction() {
-		return Date_of_Transaction;
+		return date_of_Transaction;
 	}
 	
 	public void setDate_of_Transaction(Date date_of_Transaction) {
-		Date_of_Transaction = date_of_Transaction;
+		this.date_of_Transaction = date_of_Transaction;
 	}
 }

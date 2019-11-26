@@ -23,8 +23,8 @@ public class AccountDaoImpl implements AccountDao
 	EntityManager manager;
 	
 	@Override
-	public Account getAccDetails(int acno) throws AccountException {
-	Query qry = manager.createQuery("Select e from account e where e.account_no=:arg1 ");
+	public Account getAccDetails(long acno) throws AccountException {
+	Query qry = manager.createQuery("Select e from acc e where e.account_no=:arg1 ");
 	qry.setParameter("arg1", acno);
 	Account acc = (Account)qry.getSingleResult();
 	return acc;
@@ -32,8 +32,8 @@ public class AccountDaoImpl implements AccountDao
 
 
 	@Override
-	public String getAccountType(int acno) throws AccountException {
-		Query qry = manager.createQuery("Select e from account e where e.account_no=:arg1 ");
+	public String getAccountType(long acno) throws AccountException {
+		Query qry = manager.createQuery("Select e from acc e where e.account_no=:arg1 ");
 		qry.setParameter("arg1", acno);
 		Account acc = (Account)qry.getSingleResult();
 		//return acc;
@@ -42,8 +42,8 @@ public class AccountDaoImpl implements AccountDao
 	}
 
 	@Override
-	public int getAccountBalance(int acno) throws AccountException {
-		Query qry = manager.createQuery("Select e from account e where e.account_no=:arg1 ");
+	public int getAccountBalance(long acno) throws AccountException {
+		Query qry = manager.createQuery("Select e from acc e where e.account_no=:arg1 ");
 		qry.setParameter("arg1", acno);
 		Account acc = (Account)qry.getSingleResult();
 		return acc.getBalance();
@@ -59,7 +59,7 @@ public class AccountDaoImpl implements AccountDao
 
 	@Override
 	@Transactional
-	public boolean setAccountBalance(int acno, int amount,boolean flg) throws AccountException {
+	public boolean setAccountBalance(long acno, int amount,boolean flg) throws AccountException {
 		// TODO Auto-generated method stub
 		Account acc= getAccDetails(acno);
 		if(flg)
@@ -69,8 +69,4 @@ public class AccountDaoImpl implements AccountDao
 		manager.merge(acc);
 		return true;
 	}
-
-
-
-	
 }

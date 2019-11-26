@@ -38,20 +38,20 @@ public class UserController {
 	public void initBinder(WebDataBinder webDataBinder) {
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 	    dateFormat.setLenient(true);
-	    webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	    webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); 
 	}
 	
 	public UserController() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@GetMapping("home.usr")
+	@GetMapping("registration.usr")
 	public String showHome()
 	{
 		return "addUser";
 	}
 	
-	@PostMapping("home.usr")
+	@PostMapping("registration.usr")
 	public String addUser(User user,HttpServletRequest request,Map model,
 			@RequestParam("birth") Date birth, HttpSession session
 			)throws UserException, AccountException

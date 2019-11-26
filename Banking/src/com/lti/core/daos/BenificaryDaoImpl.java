@@ -28,7 +28,7 @@ public class BenificaryDaoImpl implements BenificaryDao{
 	}
 
 	@Override
-	public int getBenficary(int account_no,String name) {
+	public int getBenficary(long account_no,String name) {
 		Query qry = manager.createQuery("select b. toAcNo  from benf where b.fromAcNo=:account_no and b.b_name=:na");
 		qry.setParameter("account_no", account_no);
 		qry.setParameter("na", name);

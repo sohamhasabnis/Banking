@@ -8,5 +8,5 @@ import com.lti.core.exceptions.UserException;
 
 public interface TransactionDao {
 	public boolean addTransaction(Transaction transaction);
-	public List<Transaction> getTransactions(Date fromDate,Date toDate);
+	public List<Transaction> getTransactions(Date fromDate,Date toDate, long account_no);
 }

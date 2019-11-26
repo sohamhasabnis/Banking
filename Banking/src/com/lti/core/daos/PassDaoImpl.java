@@ -44,6 +44,7 @@ private EntityManager manager;
 	}
 
 	@Override
+	@Transactional
 	public int updateLoginPassword(String accPassword,String userId) throws PassException {
 		Query qry = manager.createQuery("update pass p set p.accPassword=:accpass where p.userId=:arguser");
 		qry.setParameter("accpass", accPassword);
@@ -53,6 +54,7 @@ private EntityManager manager;
 	}
 
 	@Override
+	@Transactional
 	public int updateTransactionPassword(String transPassword,String userId) throws PassException {
 		Query qry = manager.createQuery("update pass p set p.txnPassword=:txnpass where p.userId=:arguser");
 		qry.setParameter("accpass", transPassword);

@@ -1,5 +1,7 @@
 package com.lti.core.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,13 +39,11 @@ public class LoginServiceImpl implements LoginService {
 		return true;
 	}
 
-	
 	@Override
 	@Transactional
 	public void addStatus(Status status) {
 		dao.setStatusLog(status);
 	}
-
 
 	@Override
 	public boolean validatePassword(String userId, String password) throws PassException {
@@ -51,5 +51,22 @@ public class LoginServiceImpl implements LoginService {
 		if(pass.equals(password))
 			return true;
 		return false;
+	}
+
+	@Override
+	public long getAccount(String userId) {
+		return dao.getAccount(userId);
+	}
+
+	@Override
+	public List<Status> getUsers(String status) {
+		// TODO Auto-generated method stub
+		return dao.getUser(status);
+	}
+
+	@Override
+	public boolean updateStatus(String status, String userId) {
+		// TODO Auto-generated method stub
+		return dao.updateStatus(status, userId);
 	}
 }

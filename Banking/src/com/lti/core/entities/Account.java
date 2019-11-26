@@ -18,7 +18,7 @@ public class Account
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="app_seq")
 	@Column(name="ACCOUNT_NO")
-	private long account_no;
+	 long account_no;
 	
 	@Column(name="TYPE")
 	private String type;

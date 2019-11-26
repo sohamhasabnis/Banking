@@ -1,11 +1,15 @@
 package com.lti.core.daos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.core.entities.Status;
 
@@ -47,5 +51,25 @@ public class StatusDaoImpl implements StatusDao {
 		qry.setParameter("arg1", userId);
 		Status sts = (Status)qry.getSingleResult();
 		return sts.getAccount_no();
+	}
+
+	@Override
+	public List<Status> getUser(String status) {
+		List<Status> list= new ArrayList<>();
+		Query qry = manager.createQuery("select s from status101 s where s.status=:arg1");
+		qry.setParameter("arg1", status);
+		list = qry.getResultList();
+		
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public boolean updateStatus(String status,String userId) {
+		// TODO Auto-generated method stub
+		Query qry = manager.createQuery("update status101 s set s.status=:arg1 where s.userId=:arg2 ");
+		qry.setParameter("arg1",status);
+		qry.setParameter("arg2", userId);
+		return true;
 	}
 }
