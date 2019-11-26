@@ -31,9 +31,9 @@ public class TransactionDaoImpl implements TransactionDao{
 
 	@Override
 	public List<Transaction> getTransactions(Date fromDate,Date toDate,long account_no) {
-		Query qry = manager.createQuery("select t from trans t where t.date_of_Transaction between(:date1 and :date2) and t.account_no=:acc_no");
+		Query qry = manager.createQuery("select t from trans t where t.date_of_Transaction = :date1 and t.account_no=:acc_no");
 		qry.setParameter("date1", fromDate);
-		qry.setParameter("date2", toDate);
+	//	qry.setParameter("date2", toDate);
 		qry.setParameter("acc_no", account_no);
 		List<Transaction> transactions = qry.getResultList();
 		return transactions;

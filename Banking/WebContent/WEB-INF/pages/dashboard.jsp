@@ -110,7 +110,7 @@
         <ul>
             <li><a href="AccountDetails.html">Account Details</a></li>
             <br><br>
-            <li><a href="AccSummary.html">Account Summary</a></li>
+            <li><a href="summary.usr">Account Summary</a></li>
             <br><br>
             <li><a href="FundTransfer.html">Fund Transfer</a></li>
             <br><br>
@@ -119,7 +119,7 @@
         </div>
         <div class="c">
         <div class="navbar">
-                <a href="AccSattement.html">Account Statement</a>
+                <a href="summary.usr">Account Statement</a>
                 <a href="UserProfile.html">User Profile</a>
                 <a href="email.usr">ChangeUser Id Password</a>
                 <div class="dropdown">
