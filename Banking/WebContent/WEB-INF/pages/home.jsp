@@ -40,7 +40,7 @@ background-size: 100% 100%;
         <div class="navbar">
                 <a href="login.usr">Login</a>
                 <a href="registration.usr">Register</a>
-                <a href="contact.jsp">Contact Us</a>
+                <a href="contact.usr">Contact Us</a>
                 
            </div> 
         </div>

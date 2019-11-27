@@ -97,4 +97,10 @@ public class UserController {
 		accService.addAccount(acc);
 		session.setAttribute("acc_no",acc.getAccount_no());
 	}
+	
+	@RequestMapping("contact.usr")
+	public String contact() {
+		return "contact";
+	}
+	
 }

@@ -120,7 +120,7 @@
         <div class="c">
         <div class="navbar">
                 <a href="summary.usr">Account Statement</a>
-                <a href="UserProfile.html">User Profile</a>
+                <a href="userProfile.usr">User Profile</a>
                 <a href="email.usr">ChangeUser Id Password</a>
                 <div class="dropdown">
                   <button class="dropbtn">Fund Transfer 
@@ -130,10 +130,10 @@
                     <a href="rtgs.usr">RTGS</a>
                     <a href="imps.usr">IMPS</a>
                     <a href="neft.usr">NEFT</a>
-                    <a href="beneficiary.jsp">Add New Beneficiary</a>
+                    <a href="beneficiary.usr">Add New Beneficiary</a>
                     
                   </div>
-                  
+             
               </div>
               <a href="logout.usr">Logout</a>
                 </div> <br><br>

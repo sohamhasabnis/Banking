@@ -64,12 +64,19 @@ public class PasswordController {
 		return "thanks";
 	}
 	
-	private void addBeneficary() {
+	@RequestMapping("beneficiary.usr")
+	public String addBeneficary() {
 		Benificary benificary = new Benificary();
 		benificary.setB_name("soham");
 		benificary.setFromAcNo(1001);
 		benificary.setToAcNo(1002);
 		beneficaryService.addBeneficary(benificary);
+		return "beneficiary";
+	}
+	
+	@RequestMapping("userProfile.usr")
+	public String userProfile() {
+		return "userProfile";
 	}
 	
 	private void SetAccountStatus(HttpSession session) {
