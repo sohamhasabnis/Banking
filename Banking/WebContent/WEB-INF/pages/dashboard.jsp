@@ -130,7 +130,7 @@
                     <a href="rtgs.usr">RTGS</a>
                     <a href="imps.usr">IMPS</a>
                     <a href="neft.usr">NEFT</a>
-                    <a href="beneficiary.html">Add New Beneficiary</a>
+                    <a href="beneficiary.jsp">Add New Beneficiary</a>
                     
                   </div>
                   

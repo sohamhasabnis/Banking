@@ -4,44 +4,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
-<style>
-        div.a {
-  position: relative;
-  width: auto;
-  height: 600px;
-  border: 3px solid black;
-  background-color: papayawhip;
+<title>HOME PAGE</title>
+
+<style type="text/css">
+html, 
+body {
+height: 100%;
 }
-div.b {
-  position: absolute;
-  left: auto;
-  width: 300px;
-  height: 300px;
-  background-color:palevioletred;
-  border: 4px solid grey;
-  box-sizing: border-box;
+
+body {
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwP9T_fOYaPe1QnIihzIv_x6GkP6GOBSWwtUmNzrIOMp8SWlfwiQ&s");
+background-repeat: no-repeat;
+background-size: 100% 100%;
 }
-div.c {
-  position: absolute;
-  left: 400px;
-  width: 500px;
-  height: 500px;
-  background-color: lightsalmon;
-  border: 3px solid green;
-} 
-    </style>
+
+
+.navbar {
+  overflow: hidden;
+  background-color:green;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+</style>
 </head>
 <body>
-        <h1>Welcome to Bank!!!</h1>
-        <div class="a">
-        <center><h2><span style="border: 1px solid black ">Home</span></h2></center> 
-            <div class="b"><b>Login Internet Banking!</b><br>
-                 <p id="para2"><a href="login.usr"> Login</a></p>
-                 <p id="para2"><a href="registration.usr"> Register</a></p>
-                 <p id="para2"><a href="account.jsp">Apply online for account</a></p>
-                </div>
-        </div>
 
+      
+                 <div class="c">
+        <div class="navbar">
+                <a href="login.usr">Login</a>
+                <a href="registration.usr">Register</a>
+                <a href="contact.jsp">Contact Us</a>
+                
+           </div> 
+        </div>
+ <h1>Welcome to Bank!!</h1>
+ <br><br><br>
+ <h3>About Us</h3>
+ <br>
+ <p>A Saga of Vision and Enterprise
+It has been a long and eventful journey of almost a century across 21 countries. Starting in 1908 from a small building in Baroda to its new hi-rise and hi-tech Baroda Corporate Centre in Mumbai, is a saga of vision, enterprise, financial prudence and corporate governance.
+</p>
+               
 </body>
+
 </html>
